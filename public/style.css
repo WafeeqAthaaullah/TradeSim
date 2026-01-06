@@ -1,0 +1,74 @@
+:root { 
+    /* Default Dark Theme */
+    --bg: #0d1117; 
+    --card: #161b22; 
+    --text: #c9d1d9; 
+    --accent: #58a6ff; 
+    --green: #2ea043; 
+    --red: #da3633; 
+    --sidebar: #010409;
+    --border: #30363d;
+    --hover: #21262d;
+}
+
+/* Light Theme Overrides */
+body.light-mode {
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --text: #1f2937;
+    --sidebar: #ffffff;
+    --border: #e5e7eb;
+    --hover: #f9fafb;
+    --accent: #2563eb;
+}
+
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    font-family: 'Segoe UI', sans-serif; 
+    margin: 0; 
+    display: flex; 
+    height: 100vh; 
+    overflow: hidden; 
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Layout */
+.dashboard { display: flex; width: 100%; }
+.sidebar { width: 250px; border-right: 1px solid var(--border); background: var(--sidebar); display: flex; flex-direction: column; padding: 20px; }
+.main-content { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+
+/* Components */
+.brand { font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: var(--accent); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+
+.stock-item { padding: 15px; border-bottom: 1px solid var(--border); cursor: pointer; transition: 0.2s; display: flex; justify-content: space-between; }
+.stock-item:hover, .stock-item.active { background: var(--hover); border-left: 3px solid var(--accent); }
+
+.user-info { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+.balance-text { font-size: 1.5rem; font-weight: bold; color: var(--green); }
+
+/* Header & Chart */
+header { display: flex; justify-content: space-between; align-items: flex-start; }
+.large-price { font-size: 2.5rem; font-weight: 300; }
+.chart-container { height: 350px; position: relative; }
+.lower-deck { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+.connection-status { font-size: 0.8rem; color: #8b949e; }
+.connection-status.active { color: var(--green); font-weight: bold; }
+
+/* Inputs & Buttons */
+.input-group { margin-bottom: 15px; }
+input { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 4px; box-sizing: border-box;}
+.btn-group { display: flex; gap: 10px; }
+.btn { flex: 1; padding: 12px; border: none; cursor: pointer; color: white; font-weight: bold; border-radius: 4px; }
+.buy { background: var(--green); } .sell { background: var(--red); }
+
+/* Theme Button */
+.theme-toggle { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 8px; border-radius: 4px; cursor: pointer; margin-bottom: 20px; width: 100%; }
+.theme-toggle:hover { background: var(--hover); }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th { text-align: left; color: #8b949e; padding-bottom: 10px; }
+td { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.pl-positive { color: var(--green); } .pl-negative { color: var(--red); }
